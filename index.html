@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+        }
+        .bg-box {
+            width: calc(100vw - 6px);
+            height: 100vh;
+            margin: 0 auto;
+            position: relative; 
+            background-image: url("./IMG_20261101_203819.png");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            transition: filter 0.25s ease;
+            filter: brightness(1);
+        }
+        .corner-text {
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+            color: red;
+            font-size: 18px;
+            font-family: "微软雅黑", sans-serif;
+            line-height: 1.8;
+            text-align: right;
+        }
+        .link-wrap {
+            display: block;
+            width: calc(100vw - 6px);
+            height: 100vh;
+            margin: 0 auto;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .link-wrap:hover .bg-box {
+            filter: brightness(0.85);
+        }
+    </style>
+</head>
+<body>
+    <a class="link-wrap" href="./222.htlm.html" target="_blank">
+        <div class="bg-box">
+            <div class="corner-text">
+                任意点击，进入下一个界面
+            </div>
+        </div>
+    </a>
+</body>
+</html>
