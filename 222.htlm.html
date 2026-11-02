@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>新界面</title>
+<style>
+html, body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.bg-box {
+  width: calc(100vw - 6px);
+  height: 100vh;
+  margin: 0 auto;
+  background-image: url("./mmexport1793540199723.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+}
+
+/* 祝福文字盒子 */
+.article-text {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 520px;
+  max-height: 85vh;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-y: auto;
+  border-radius: 8px;
+}
+</style>
+</head>
+<body>
+
+<div class="bg-box">
+  <div class="article-text">
+致小吉吉：生日快乐  (屏幕怎么黑了，点击试一下)<br><br>
+一晃，我们分开已经挺久了。从前一起挤在高中教室刷题，抬头就能看见彼此；现在你在海南大学，日日伴着椰风海浪，我在山东理工大学，守着北方的秋风，两地相隔千里，没法当面陪你吹蜡烛，但是祝福一定要送到：生日快乐！<br><br>
+回想高中的时候，日子好像永远都是试卷、晚自习和写不完的题。我们凑在一起讨论难题，考差了互相打气，偶尔也会偷偷畅想高考之后会去往哪里。那时候的我们不会想到，最后你奔赴温暖的海南，我留在淄博读书。上了大学之后，我们各自有了新的课程、新的朋友，平时都忙着学业，聊天的次数慢慢变少。可只要想起那段一起埋头奋斗的时光，心里还是觉得很亲切。<br><br>
+我常常会想象你的大学生活：有空可以去海边散步，吹吹海风，看橘红色的落日沉进海里。希望你在海南大学的每一天都舒心自在。大学的节奏并不轻松，会有难啃的专业课，也会有大大小小的压力。新的一岁，不用逼自己事事都做到最好，尽力就够了。学习稳步向前，累了就停下来放松一下，好好吃饭，照顾好自己，这才是最重要的。<br><br>
+我们一个向南，一个向北，在两座城市各自努力。距离没有冲淡我们高中积攒下来的交情，想起曾经并肩的日子，依旧觉得很难得。我们走在不同的路上，看着不一样的风景，朝着各自的目标慢慢往前走。我很期待，等到以后有空见面的时候，我们坐下来好好聊聊，说说海南的海，讲讲理工校园里的日常，再回头聊聊高中那些有趣的小事。<br><br>
+新一岁，愿海南的海风带给你好运。愿你少一点烦恼，多一些开心，想要的都慢慢如愿。在海大继续闪闪发光，大胆去尝试喜欢的事情。<br><br>
+再次祝你生日快乐！愿岁岁平安，万事顺心，我们高处相见。
+  </div>
+</div>
+
+<script>
+const bgBox = document.querySelector('.bg-box');
+// 祝福语库，可以自己增删
+const wordList = [
+    "生日快乐",
+    "天天开心",
+    "万事顺意",
+    "岁岁欢喜",
+    "前程似锦",
+    "平安喜乐",
+    "闪闪发光",
+    "海大好运"
+];
+// 随机颜色
+const colorList = ["#ff6b6b", "#4ecdc4", "#ffe66d", "#ff98de", "#72ee72", "#60a5fa"];
+
+bgBox.addEventListener('click', function(e){
+    // 获取点击坐标
+    const x = e.clientX;
+    const y = e.clientY;
+    // 随机选一句祝福
+    const text = wordList[Math.floor(Math.random() * wordList.length)];
+    const color = colorList[Math.floor(Math.random() * colorList.length)];
+
+    const floatWord = document.createElement('div');
+    floatWord.innerText = text;
+    floatWord.style.position = 'fixed';
+    floatWord.style.left = x + 'px';
+    floatWord.style.top = y + 'px';
+    floatWord.style.color = color;
+    floatWord.style.fontSize = '24px';
+    floatWord.style.fontWeight = 'bold';
+    floatWord.style.pointerEvents = 'none';
+    floatWord.style.transition = 'all 1.2s ease-out';
+    floatWord.style.zIndex = '999';
+    document.body.appendChild(floatWord);
+
+    // 向上飘+透明消失
+    setTimeout(()=>{
+        floatWord.style.transform = 'translateY(-120px)';
+        floatWord.style.opacity = '0';
+    },10);
+
+    // 动画结束删掉元素
+    setTimeout(()=>{
+        floatWord.remove();
+    },1200);
+})
+</script>
+
+</body>
+</html>
